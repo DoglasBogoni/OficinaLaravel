@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateContaTable extends Migration
+class CreateServicsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,18 @@ class CreateContaTable extends Migration
      */
     public function up()
     {
-        Schema::create('conta', function (Blueprint $table) {
+        Schema::create('servicos', function (Blueprint $table) {
             $table->id();
-            $table->string('nome_cliente', 100);
-            $table->double('valor', 50);
-            $table->date('dt_cadastro');
-            $table->date('dt_vencimento');
+            $table->double('valor_servico', 100);
+            $table->string('nome_cliente');
+            $table->string('descricao_servico', 50);
+            $table->string('observação_servico');
+            $table->date('dt_servico');
             $table->timestamps();
         });
     }
+    
+
 
     /**
      * Reverse the migrations.
@@ -30,6 +33,6 @@ class CreateContaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('conta');
+        Schema::dropIfExists('servicos');
     }
 }
